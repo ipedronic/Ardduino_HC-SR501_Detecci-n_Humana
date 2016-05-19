@@ -1,12 +1,12 @@
 //www.elbrujitocanaio.es
-//Todo el código esta bajo licencia de la Creative Commons.
+//Todo el cÃ³digo esta bajo licencia de la Creative Commons.
 //Deteccion humana HC-SR501
 ///////////////////////////////////////////////////////////
-#define pinSensor 2 //Señal del Sensor
+#define pinSensor 2 //SeÃ±al del Sensor
 #define pinLed 13 //Salida del Led
 #define pinSonoro 11 //Salida altavoz
 #define sonidoF 68 //Define frecuencia sonido(Tone())
-#define pinRele 12 //Define salida para un relé
+#define pinRele 12 //Define salida para un relÃ©
 void setup() {
 pinMode(pinSensor,INPUT);//sensor
 pinMode(pinLed,OUTPUT);//led
@@ -17,7 +17,7 @@ Serial.begin(9600);//Activo la salida serie
 }
 
 void loop() {
-  boolean Pres = digitalRead (pinSensor);//Tomo valor booleano:H ó L
+  boolean Pres = digitalRead (pinSensor);//Tomo valor booleano:H Ã³ L
 if (Pres == true){ //Si valor es H hay presencia
 Serial.println("Detecta presencia");
 digitalWrite(pinLed,HIGH);//Enciende el led
@@ -30,6 +30,7 @@ delay(5000);//Tiempo de espera
 }else{
 Serial.println("No se Detecta presencia");//Si variable Pres = L
 delay(100);
+digitalWrite(pinRele,LOW);//Apaga el rele
 digitalWrite(pinLed,LOW);//Apaga el led
 noTone(pinSonoro);
 delay(100);
